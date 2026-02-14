@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# SHE BUILDS 🎯
-
-## startup idea validator fro women founders
+# SheBuilds 🎯
 
 ### Team Name: 404 valentine not found
 
 ### Team Members
-- Member 1: Fayhaa Fathima A V- kannur university
-- Member 2: Shaza Jabbar - kannur university
+- Member 1: Fayhaa Fathima A V- Kannur University
+- Member 2: Shaza Jabbar - Kannur University
 
 ### Hosted Project Link
-
+https://fayyhafaath.github.io/hackathon/
 
 ### Project Description
-[2-3 lines about what your project does]
+Many women have innovative ideas but lack structured guidance to validate them.SheBuilds is an AI-powered startup validation platform designed specifically for aspiring female founders.
+Users input their startup idea,and our AI analyzes problem clarity,target market strength,monetization feasibilt,and scalability.
+Instead of overwhelming jargon,we provide a clear score and actionable steps.Our vision is to democratize startup validation and increase women-led ventures globally.
 
 ### The Problem statement
-[What problem are you solving?]
+Many women entrepreneurs have ideas but dont know if its market ready, dont know how to validate , dont understand MVP concept.
 
 ### The Solution
-[How are you solving it?]
+
 
 ---
 
