@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheBuilds - Startup Validator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      animation: gradientShift 15s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .container {
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 900px;
+      width: 100%;
+      animation: slideIn 0.6s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h1 {
+      color: #667eea;
+      font-size: 48px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      color: #999;
+      margin-bottom: 40px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .page.active {
+      display: block;
+    }
+    
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 16px 18px;
+      margin: 15px 0;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.3s;
+      background: #f8f9fa;
+    }
+
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 14px 35px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 20px 10px 20px 0;
+      transition: all 0.3s;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+    
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: #d0d0d0;
+    }
+    
+    .result-card {
+      margin-top: 30px;
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+      border-left: 5px solid #667eea;
+    }
+    
+    .score {
+      font-size: 72px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 20px 0;
+    }
+
+    .score-label {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #667eea;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    h3 {
+      color: #764ba2;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    ul {
+      margin-left: 20px;
+      color: #333;
+    }
+    
+    li {
+      margin: 10px 0;
+      padding-left: 10px;
+      line-height: 1.6;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.7;
+      margin: 10px 0;
+    }
+    
+    .recommendation {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    .status-badge.connected {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-badge.disconnected {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .score {
+        font-size: 48px;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+      <h1>🚀 SheBuilds</h1>
+      <p class="subtitle">AI-powered startup idea validator for women founders.</p>
+      
+      <p style="color: #666; line-height: 1.8; margin: 20px 0;">
+        Transform your startup vision into reality. Get instant AI-powered feedback on your business idea, 
+        market potential, and monetization strategies from Google's Gemini AI.
+      </p>
+
+      <button onclick="goToForm()" style="font-size: 18px; padding: 16px 40px;">Get Started →</button>
+      
+      <div class="status-badge connected" id="connectionStatus">
+        ✅ Connected to AI Backend
+      </div>
+    </div>
+
+    <!-- Form Page -->
+    <div id="formPage" class="page">
+      <h2>📝 Describe Your Startup</h2>
+      <p style="color: #999; margin-bottom: 30px;">Fill in the details below to get AI-powered feedback on your idea</p>
+
+      <div class="form-group">
+        <label>💡 Your Startup Idea</label>
+        <textarea id="idea" placeholder="Describe what your startup does, the problem it solves, and how it's unique..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>👥 Target Audience</label>
+        <input type="text" id="audience" placeholder="Who are your customers? (e.g., young professionals, small businesses)" required>
+      </div>
+
+      <div class="form-group">
+        <label>❓ Problem Statement</label>
+        <textarea id="problem" placeholder="What specific problem does your startup solve? Why is it important?" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>💰 Revenue Model (Optional)</label>
+        <input type="text" id="revenue" placeholder="How will you make money? (e.g., subscription, B2B sales, ads)">
+      </div>
+
+      <div class="button-group">
+        <button id="analyzeBtn" onclick="submitIdea()" style="flex: 1;">Analyze with Gemini AI ✨</button>
+        <button class="btn-secondary" onclick="goHome()">← Back</button>
+      </div>
+    </div>
+
+    <!-- Result Page -->
+    <div id="resultPage" class="page">
+      <h2>🎯 AI Analysis Results</h2>
+      
+      <div class="result-card">
+        <div class="score-label">Startup Score</div>
+        <div class="score" id="scoreDisplay"></div>
+
+        <h3>📊 Problem Clarity</h3>
+        <p id="problemClarity"></p>
+
+        <h3>📈 Market Insight</h3>
+        <p id="marketInsight"></p>
+
+        <h3>💸 Monetization Strategies</h3>
+        <ul id="monetizationList"></ul>
+
+        <h3>✨ Recommendation</h3>
+        <div class="recommendation" id="recommendation"></div>
+      </div>
+
+      <div class="button-group">
+        <button onclick="goToForm()" style="flex: 1;">← Try Another Idea</button>
+        <button class="btn-secondary" onclick="goHome()">Home</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "http://localhost:3000";
+
+    // Check backend connection on load
+    window.addEventListener("load", checkBackendConnection);
+
+    function checkBackendConnection() {
+      fetch(`${API_URL}/api/data`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("connectionStatus").innerHTML = "✅ Connected to AI Backend";
+          document.getElementById("connectionStatus").className = "status-badge connected";
+        })
+        .catch(() => {
+          document.getElementById("connectionStatus").innerHTML = "⚠️ Backend not connected";
+          document.getElementById("connectionStatus").className = "status-badge disconnected";
+        });
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+    }
+
+    function goHome() {
+      showPage("homePage");
+    }
+
+    function goToForm() {
+      showPage("formPage");
+    }
+
+    async function submitIdea() {
+      const idea = document.getElementById("idea").value;
+      const audience = document.getElementById("audience").value;
+      const problem = document.getElementById("problem").value;
+      const revenue = document.getElementById("revenue").value;
+
+      if (!idea || !audience || !problem) {
+        alert("Please fill in all required fields");
+        return;
+      }
+
+      const btn = document.getElementById("analyzeBtn");
+      btn.disabled = true;
+      btn.textContent = "🔄 Analyzing with Gemini...";
+
+      try {
+        const response = await fetch(`${API_URL}/analyze`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ idea, audience, problem, revenue }),
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.error || "Analysis failed");
+        }
+
+        const data = await response.json();
+        
+        // Display results
+        document.getElementById("scoreDisplay").textContent = data.score + "/100";
+        document.getElementById("problemClarity").textContent = data.problemClarity;
+        document.getElementById("marketInsight").textContent = data.marketInsight;
+        document.getElementById("recommendation").textContent = data.recommendation;
+        
+        // Display monetization list
+        const monetizationList = document.getElementById("monetizationList");
+        monetizationList.innerHTML = "";
+        data.monetization.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          monetizationList.appendChild(li);
+        });
+
+        showPage("resultPage");
+      } catch (error) {
+        alert("❌ Error: " + error.message + "\n\nMake sure:\n1. Backend is running\n2. Gemini API key is set in .env");
+        console.error(error);
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Analyze with Gemini AI ✨";
+    }
+  </script>
+</body>
+</html>
