@@ -22,38 +22,37 @@ Instead of overwhelming jargon,we provide a clear score and actionable steps.Our
 Many women entrepreneurs have ideas but dont know if its market ready, dont know how to validate , dont understand MVP concept.
 
 ### The Solution
+An AI-powered system that analyzes user-submitted ideas and evaluates them based on problem clarity, market potential, monetization feasibility, and scalability. It provides a simple score along with clear, actionable insights to help users refine their concepts and make informed decisions. By offering structured guidance in an easy-to-understand format, the solution enables individuals to validate ideas confidently and move forward with stronger, more viable plans.
 
 
 ---
 
 ## Technical Details
 
+
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: html,js,css
+- Frameworks used: React
+- Tools used: VS Code, Git
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
 
----
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+-  AI analyse:
+- market problem clarity
+- target audience
+- monetization strength
+- competitor presence
+- improvement suggestion
 
 ---
 
 ## Implementation
+
 
 ### For Software:
 
@@ -83,8 +82,8 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1873" height="891" alt="image" src="https://github.com/user-attachments/assets/d2a1e70d-182c-462e-837f-90b0087651fd" />
+
 
 ![Screenshot2](Add screenshot 2 here with proper name)
 *Add caption explaining what this shows*
