@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
+  <img src="https://github.com/user-attachments/assets/ea43556c-a7ae-4e13-b869-b8fd9487443a" alt="Project Banner" width="100%">
 </p>
 
 # SheBuilds 🎯
@@ -26,8 +26,6 @@ An AI-powered system that analyzes user-submitted ideas and evaluates them based
 
 
 ---
-
-## Technical Details
 
 
 ### Technologies/Components Used
@@ -85,11 +83,15 @@ List the key features of your project:
 <img width="1873" height="891" alt="image" src="https://github.com/user-attachments/assets/d2a1e70d-182c-462e-837f-90b0087651fd" />
 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1703" height="862" alt="image" src="https://github.com/user-attachments/assets/0589b47e-8624-4cf7-8e51-5e117192e982" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+
+<img width="1881" height="691" alt="image" src="https://github.com/user-attachments/assets/1a01e897-5b8b-47a9-ab58-80d0fe8da541" />
+
+
+<img width="1433" height="889" alt="image" src="https://github.com/user-attachments/assets/a8603655-7de2-4b54-9b0a-9bb389dde4d1" />
+
+
 
 #### Diagrams
 
@@ -99,9 +101,19 @@ List the key features of your project:
 *Explain your system architecture - components, data flow, tech stack interaction*
 
 **Application Workflow:**
-
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
+User Inputs Idea
+↓
+Frontend sends request to Backend
+↓
+Backend receives data
+↓
+AI analyzes idea (clarity, market, monetization, scalability)
+↓
+Backend formats response + score
+↓
+Frontend displays results + suggestions
+↓
+User reviews feedback and improves idea
 
 ---
 
@@ -360,38 +372,25 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+https://drive.google.com/file/d/1xidLVb4NNmSgbogKeDlX8-PUihMHiE89/view?usp=drive_link
 
-*Explain what the video demonstrates - key features, user flow, technical highlights*
-
-### Additional Demos
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
-
----
+working process
 
 ## AI Tools Used (Optional - For Transparency Bonus)
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:**  ChatGPT, Claude 
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+**Purpose:** 
+-  Debugging assistance 
+-  Code review and optimization suggestions
 
-**Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
-
-**Percentage of AI-generated code:** [Approximately X%]
 
 **Human Contributions:**
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
+- documentation
+- design planning
+- idea
 
 *Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
 
@@ -399,9 +398,9 @@ If you used AI tools during development, document them here for transparency:
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Fayhaa Fathima : backend development
+- Shaza Jabbar   : frontend development
+
 
 ---
 
